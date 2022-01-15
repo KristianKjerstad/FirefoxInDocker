@@ -1,0 +1,16 @@
+version: "3.8"
+
+
+
+services:
+    firefox:
+      image: ghcr.io/linuxserver/firefox
+      container_name: firefox_docker
+      environment:
+        - PUID=1000 #change to your own ubuntu user's group (type in id in temrinal to see your uid)
+        - PGID=1000 #change to your own ubuntu user's group (type id in terminal to see your group id (grid))
+        - TZ=Norway/Oslo #change to your area
+      ports:
+        - 3456:3000
+      shm_size: "1gb"
+      restart: unless-stopped
